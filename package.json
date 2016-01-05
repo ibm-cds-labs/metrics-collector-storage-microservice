@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "cf-deployment-tracker-client": "0.0.8",
+    "cfenv": "^1.0.3",
+    "cloudant": "^1.4.0",
+    "node-redis": "^0.1.7",
+    "rabbit.js": "^0.4.4"
+  }
+}
