@@ -1,4 +1,14 @@
 {
+  "name": "cds-labs-metrics-collector-storage-microservice",
+  "version": "0.1.0",
+  "description": "Consumer microservice that saves data from Redis/RabbitMQ/Kafka to Cloudant/MongoDB/Elasticsearch",
+  "main": "app.js",
+  "scripts": {},
+  "repository": "https://github.com/glynnbird/metrics-collector-storage-microservice",
+  "keywords": [
+    "tracking",
+    "microservice"
+  ],
   "dependencies": {
     "async": "^1.5.1",
     "cf-deployment-tracker-client": "0.0.8",
@@ -9,5 +19,11 @@
     "mongodb": "^2.1.3",
     "node-redis": "^0.1.7",
     "rabbit.js": "^0.4.4"
-  }
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "author": "glynn.bird@uk.ibm.com",
+  "license": "IBM",
+  "readmeFilename": "README.md"
 }
