@@ -5,6 +5,7 @@
     "cfenv": "^1.0.3",
     "cloudant": "^1.4.0",
     "message-hub-rest": "^1.0.3",
+    "mongodb": "^2.1.3",
     "node-redis": "^0.1.7",
     "rabbit.js": "^0.4.4"
   }
