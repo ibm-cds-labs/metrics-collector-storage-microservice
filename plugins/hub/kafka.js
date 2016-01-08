@@ -1,6 +1,6 @@
 var async = require('async'),  
    MessageHub = require('message-hub-rest'),
-   writer = require('../lib/writer.js'),
+   writer = require('../../lib/writer.js'),
    hub = new MessageHub(JSON.parse(process.env.VCAP_SERVICES)),
    queue_name = process.env.QUEUE_NAME || "mcqueue",
    consumer_name = process.env.CONSUMER_NAME || "consumer",

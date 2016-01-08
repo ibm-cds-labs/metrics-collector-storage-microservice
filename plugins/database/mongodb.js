@@ -7,7 +7,7 @@ collection = null;
 // instantiate a Cloudant library and create a database.
 var connect = function(callback) {
   var DB_NAME = process.env.DB_NAME || "mc";
-  var credentials = require('../lib/bmservice').getCredentials(/^MongoDB by Compose/) || { uri: "localhost", username: "", port: 27017};
+  var credentials = require('../../lib/bmservice').getCredentials(/^MongoDB by Compose/) || { uri: "localhost", username: "", port: 27017};
   var path = "mongodb://" + credentials.uri + ":" + credentials.port + "/" + DB_NAME;
   if (credentials.username && credentials.password) {
     path = path.replace(/\/\//, "//" + credentials.username + ":" + credentials.password);
