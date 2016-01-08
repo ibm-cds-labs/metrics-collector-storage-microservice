@@ -2,6 +2,7 @@ var elasticsearch = require('elasticsearch');
 var client = null;
 var DB_NAME = process.env.DB_NAME || "mc";
 
+
 var connect = function(callback) {
   var credentials = require('../../lib/bmservice').getCredentials(/^Elasticsearch by Compose/) || { public_hostname: "localhost/9200", username: "", password: ""};
   var creds = {};
@@ -10,6 +11,7 @@ var connect = function(callback) {
   } else {
     creds.host = "localhost:9200"
   }
+//  creds.log = "trace";
   client = new elasticsearch.Client(creds);
 };
 

@@ -22,6 +22,14 @@ var connect = function(callback) {
 
 // write in bulk
 var bulkwrite = function(docs, callback) {
+  // keys starting with $ are not allowed in MongoDB
+  for (var i in docs) {
+    for (var j in docs[i]) {
+      if ( docs[i][j].match(/^\$/)) {
+        delete docs[i][j];
+      }
+    }
+  }
   if (collection) {
     collection.insert(docs, {w:1}, callback)
   } else {
