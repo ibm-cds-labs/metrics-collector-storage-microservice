@@ -25,7 +25,7 @@ var bulkwrite = function(docs, callback) {
   // keys starting with $ are not allowed in MongoDB
   for (var i in docs) {
     for (var j in docs[i]) {
-      if ( docs[i][j].match(/^\$/)) {
+      if ( j.match(/^\$/)) {
         delete docs[i][j];
       }
     }
