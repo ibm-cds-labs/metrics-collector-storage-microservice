@@ -1,4 +1,5 @@
-var queue_types = ["redis_queue", "redis_pubsub", "rabbit_queue", "rabbit_pubsub", "kafka"];
+var fs = require('fs');
+var queue_types = fs.readdirSync("./plugins/hub/").map(function(v) { return v.replace(".js","")});
 var queue_type = "null";
 if (queue_types.indexOf(process.env.QUEUE_TYPE) > -1) {
   queue_type = process.env.QUEUE_TYPE;
