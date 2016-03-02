@@ -16,7 +16,48 @@ It uses the bulk write APIs of each database for maximum efficiency.
 
 Environment variables are used to determine which message hub and which database to use.
 
-## Installation
+## Deploy to IBM Bluemix
+
+### One-Click Deployment
+
+The fastest way to deploy this application to Bluemix is to click this **Deploy to Bluemix** button. Or, if you prefer working from the command line, skip to the **Deploy Manually** section.
+
+[![Deploy to Bluemix](https://bluemix.net/deploy/button_x2.png)](https://bluemix.net/deploy?repository=https://github.com/ibm-cds-labs/metrics-collector-storage-microservice)
+
+**Don't have a Bluemix account?** If you haven't already, you'll be prompted to sign up for a Bluemix account when you click the button.  Sign up, verify your email address, then return here and click the the **Deploy to Bluemix** button again. Your new credentials let you deploy to the platform and also to code online with Bluemix and Git. If you have questions about working in Bluemix, find answers in the [Bluemix Docs](https://www.ng.bluemix.net/docs/).
+
+### Deploy Manually to Bluemix
+
+#### Configure Cloud Foundry
+
+If you haven't already, [install the Cloud Foundry command line interface and connect to Bluemix](https://www.ng.bluemix.net/docs/#starters/install_cli.html).
+
+#### Deploy
+
+To deploy to Bluemix, simply:
+
+    $ cf push
+
+> **Note:** You may notice that Bluemix assigns a URL to your application containing a random word. This is defined in the `manifest.yml` file where the `random-route` key set to the value of `true`. This ensures that multiple people deploying this application to Bluemix do not run into naming collisions. To specify your own route, remove the `random-route` line from the `manifest.yml` file and add a `host` key with the unique value you would like to use for the host name.
+
+_**Privacy Notice:**_ _This web application includes code to track deployments to [IBM Bluemix](https://www.bluemix.net/) and other Cloud Foundry platforms. Tracking helps us measure our samples' usefulness, so we can continuously improve the content we offer to you. The following information is sent to a [Deployment Tracker](https://github.com/cloudant-labs/deployment-tracker) service on each deployment:_
+
+* _Application Name (`application_name`)_
+* _Space ID (`space_id`)_
+* _Application Version (`application_version`)_
+* _Application URIs (`application_uris`)_
+
+_This data is collected from the `VCAP_APPLICATION` environment variable in IBM Bluemix and other Cloud Foundry platforms. IBM uses this data to track metrics around deployments of sample applications to Bluemix._
+
+_To disable deployment tracking, remove the following line from `server.js`:_
+
+```
+require("cf-deployment-tracker-client").track();
+```
+
+_Once that line is removed, you may also uninstall the `cf-deployment-tracker-client` npm package._
+
+## Local Installation
 
 Clone this repository and then run
 

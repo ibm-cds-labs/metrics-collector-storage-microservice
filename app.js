@@ -9,4 +9,4 @@ var q = require('./plugins/hub/' + queue_type);
 
 q.collect();
 
-//require("cf-deployment-tracker-client").track();
+require("cf-deployment-tracker-client").track();
