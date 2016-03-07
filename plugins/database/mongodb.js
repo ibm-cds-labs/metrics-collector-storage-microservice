@@ -17,12 +17,20 @@ var connect = function(callback) {
   var options = {
     server: {
       sslValidate: false
-    }
+    },
+    mongos: {
+        ssl: true,
+        sslValidate: false,
+        poolSize: 1,
+        reconnectTries: 1
+      },
   };
+  console.log(path);
   MongoClient.connect(path, options, function(err, db) {
     if (err) {
       throw("Could not connect to MongoDB database",err);
     }  
+    console.log("connected to MongoDB")
     collection = db.collection(DB_NAME)
   });
 };
