@@ -25,7 +25,6 @@ var connect = function(callback) {
         reconnectTries: 1
       },
   };
-  console.log(path);
   MongoClient.connect(path, options, function(err, db) {
     if (err) {
       throw("Could not connect to MongoDB database",err);
