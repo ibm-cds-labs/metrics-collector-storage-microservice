@@ -9,12 +9,19 @@ var connect = function(callback) {
   var DB_NAME = process.env.DB_NAME || "mc";
   var credentials = require('../../lib/bmservice').getCredentials(/^MongoDB by Compose/) || { uri: "localhost", username: "", port: 27017};
   var path = "mongodb://" + credentials.uri + ":" + credentials.port + "/" + DB_NAME;
-  if (credentials.username && credentials.password) {
-    path = path.replace(/\/\//, "//" + credentials.username + ":" + credentials.password);
+  if (credentials.user && credentials.password) {
+    path = path.replace(/\/\//, "//" + credentials.user + ":" + credentials.password + "@");
   }
-  MongoClient.connect(path, function(err, db) {
+  path = path + "?ssl=true";
+  console.log("Connecting to MongoDB instance on", credentials.uri)
+  var options = {
+    server: {
+      sslValidate: false
+    }
+  };
+  MongoClient.connect(path, options, function(err, db) {
     if (err) {
-      throw("Could not connect to MongoDB database");
+      throw("Could not connect to MongoDB database",err);
     }  
     collection = db.collection(DB_NAME)
   });
