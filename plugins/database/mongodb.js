@@ -12,19 +12,22 @@ var connect = function(callback) {
   if (credentials.user && credentials.password) {
     path = path.replace(/\/\//, "//" + credentials.user + ":" + credentials.password + "@");
   }
-  path = path + "?ssl=true";
-  console.log("Connecting to MongoDB instance on", credentials.uri)
-  var options = {
-    server: {
-      sslValidate: false
-    },
-    mongos: {
-        ssl: true,
-        sslValidate: false,
-        poolSize: 1,
-        reconnectTries: 1
+  var options = {};
+  if (credentials.uri != "localhost") {
+    path = path + "?ssl=true";
+    options = {
+      server: {
+        sslValidate: false
       },
-  };
+      mongos: {
+          ssl: true,
+          sslValidate: false,
+          poolSize: 1,
+          reconnectTries: 1
+        },
+    };
+  }
+  console.log("Connecting to MongoDB instance on", credentials.uri)
   MongoClient.connect(path, options, function(err, db) {
     if (err) {
       throw("Could not connect to MongoDB database",err);
