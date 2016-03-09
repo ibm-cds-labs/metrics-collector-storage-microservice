@@ -4,7 +4,6 @@ var queue_type = "null";
 if (queue_types.indexOf(process.env.QUEUE_TYPE) > -1) {
   queue_type = process.env.QUEUE_TYPE;
 }
-console.log(process.env);
 console.log("Queue mode:", queue_type);
 var q = require('./plugins/hub/' + queue_type);
 
