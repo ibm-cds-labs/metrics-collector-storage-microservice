@@ -26,7 +26,7 @@ var collect =  function() {
           .then(function(data) {     
               for(var i in data) {
                 var obj = JSON.parse(data[i]);
-                console.log(obj);
+                console.log(JSON.stringify(obj)); 
                 writer.push(obj, function() { });
               }
               setTimeout(cb,100);

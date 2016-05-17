@@ -18,7 +18,7 @@ var collect = function() {
 
   client.on("message", function (channel, message) {
     var obj = JSON.parse(message.toString());
-    console.log(obj);
+    console.log(JSON.stringify(obj)); 
     writer.push(obj, function() {});
   }); 
   

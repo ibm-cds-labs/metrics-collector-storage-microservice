@@ -11,7 +11,7 @@ var collect = function() {
     var sub = context.socket('SUBSCRIBE');
     sub.on('data', function(payload) { 
       var obj = JSON.parse(payload.toString());
-      console.log(obj); 
+      console.log(JSON.stringify(obj)); 
       writer.push(obj, function() {  });
     });
     sub.connect(queue_name, function(e) {

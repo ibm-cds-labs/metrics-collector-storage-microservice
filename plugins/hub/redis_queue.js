@@ -17,7 +17,7 @@ var collect = function() {
       if (err == null && buffer != null) {
         // brpop returns ["mcqueue", "the value"]
         var obj = JSON.parse(buffer[1].toString());
-        console.log(obj);
+        console.log(JSON.stringify(obj)); 
         writer.push(obj, cb)
       } else {
         cb(null);

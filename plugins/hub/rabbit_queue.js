@@ -11,7 +11,7 @@ var collect = function() {
     var sub = context.socket('WORKER', {prefetch: 1});
     sub.on('data', function(payload) {
       var obj = JSON.parse(payload.toString());
-      console.log(obj); 
+      console.log(JSON.stringify(obj)); 
       writer.push(obj, function() {
         sub.ack();
       });
