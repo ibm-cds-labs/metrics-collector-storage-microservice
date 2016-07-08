@@ -21,6 +21,9 @@ var collect = function() {
     console.log(JSON.stringify(obj)); 
     writer.push(obj, function() {});
   }); 
+  client.on("error", function(e) {
+    console.error("Redis"+e);
+  });
   
   client.subscribe(queue_name);
 }

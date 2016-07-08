@@ -10,6 +10,10 @@ var redis = require('node-redis'),
   
 console.log("Connecting to Redis server on", credentials.public_hostname);  
 
+client.on("error", function(e) {
+  console.error("Redis"+e);
+});
+
 var collect = function() {
   async.forever(function(cb) {
     // fetch an item from the queue
