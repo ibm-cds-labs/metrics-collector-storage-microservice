@@ -1,5 +1,5 @@
 {
-  "name": "cds-labs-metrics-collector-storage-microservice",
+  "name": "simple-logging-storage",
   "version": "1.0.0",
   "description": "Consumer microservice that saves data from Redis/RabbitMQ/Kafka to Cloudant/MongoDB/Elasticsearch",
   "main": "app.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ibm-cds-labs/metrics-collector-storage-microservice"
+    "url": "https://github.com/ibm-cds-labs/simple-logging-storage"
   },
   "keywords": [
     "tracking",
